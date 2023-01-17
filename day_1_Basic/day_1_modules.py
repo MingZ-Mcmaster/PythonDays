@@ -66,7 +66,7 @@ print(person_1, '\n', person_2)
 p = str.maketrans("abcdefghi", "123456789")
 print("ming zhang".translate(p))
 
-# 字典
+# 字典: 无序，去重， 比列表快，但比列表占用内存多
 info = {
   'a111': "aaaa",
   'b111': "bbbb",
@@ -95,3 +95,39 @@ for i in info:        # 比下面的高效
 
 for index, value in info.items(): # 要先转列表再找索引和数据，所以效率低
   print(index, value)
+
+# set：去重， 关系测试
+list_a = [1, 2, 3, 4]
+set_a = set(list_a)
+print(list_a, type(list_a), '\n', set_a, type(set_a))
+
+set_b = set([3, 4, 5, 6])
+
+# 交集
+print("交集:", set_a.intersection(set_b), "or: ", set_a & set_b)
+# 并集
+print("并集:", set_a.union(set_b),"or: ",  set_a | set_b)
+# 差集
+print("差集:", set_a.difference(set_b), "or: ", set_a - set_b)
+print("差集:", set_b.difference(set_a), "or: ", set_b - set_a)
+# 子集
+print("子集:", set_a.issubset(set_b), "or: ", set_a <= set_b)
+# 父集
+print("父集:", set_a.issuperset(set_b), "or: ", set_a >= set_b)
+# 对称差集（去掉重复的）
+print("对称差集：", set_a.symmetric_difference(set_b), "or: ", set_a ^ set_b)
+# 是否无交集
+print("是否无交集：", set_a.isdisjoint(set_b))
+
+# 集合的添加
+set_a.add(99)
+print("添加99: ", set_a)
+# 集合添加多项
+set_a.update([10, 21, 33])
+print("添加多项: ", set_a)
+# 集合的删除
+set_a.remove(99)  # 若删除项不在，会报错
+set_a.discard(99) # 若删除项不在，do nothing
+print("删除99： ", set_a)
+# 随机删除一个数值
+print(set_a.pop(), set_a)
