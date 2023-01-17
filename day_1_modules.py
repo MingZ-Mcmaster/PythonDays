@@ -61,3 +61,37 @@ person_2[0] = 'Yang'
 print(person_1, '\n', person_2)
 person_1[1][1] = 888
 print(person_1, '\n', person_2)
+
+# translate 将1-9映射到a-i
+p = str.maketrans("abcdefghi", "123456789")
+print("ming zhang".translate(p))
+
+# 字典
+info = {
+  'a111': "aaaa",
+  'b111': "bbbb",
+  'c111': "cccc",
+  'd111': "dddd"
+}
+b = {
+  "a111": "Ming",
+  'b111': "Yang",
+  "a222": "2222",
+  "c111": "cccc"
+}
+info.update(b)  # 合并：update info with b （去重，增加）
+print(info)
+
+print(info.items()) # 把字典转换成列表: .items()
+
+c = dict.fromkeys([6, 7, 8])        # 初始化一个字典，每个index都指向一个None地址
+print(c)
+c = dict.fromkeys([6, 7, 8], "test")# 初始化一个字典，每个index都指向一个地址:test
+print(c)
+
+# 循环字典内的数据
+for i in info:        # 比下面的高效
+  print(i, info[i])
+
+for index, value in info.items(): # 要先转列表再找索引和数据，所以效率低
+  print(index, value)
