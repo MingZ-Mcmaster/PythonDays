@@ -12,7 +12,10 @@ print(f"Conn: {conn}\n Addr: {addr}")
 
 print("The link is connected.")
 data = conn.recv(1024)    # 接收发送端的数据
-print(f"Recv: {data}")
+# 如果是中文的接收，需要解码
+# print(f"Recv: {data}")
+print(f"Recv: {data.decode()}")
+
 
 conn.send(data.upper())   # 发送数据给发送端
 
