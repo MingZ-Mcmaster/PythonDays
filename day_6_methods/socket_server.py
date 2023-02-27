@@ -3,7 +3,7 @@ import socket
 server = socket.socket()
 
 server.bind(("localhost", 6969))    # 绑定要监听的端口
-server.listen() # 监听
+server.listen() # 监听,可以设置x，最大多少个客户可以挂起连接（排队）
 
 print("我要开始等待数据了")
 conn, addr = server.accept() # 等待连接的数据, conn就是那个连接, addr就是地址
