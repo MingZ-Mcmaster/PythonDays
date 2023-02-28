@@ -1,0 +1,15 @@
+有一些特殊的设备文件。例如/dev/zero文件代表一个永远输出 0的设备文件，使用它作输入可以得到全为空的文件。因此可用来创建新文件和以覆盖的方式清除旧文件。下面使用dd命令将从zero设备中创建一个10K大小（bs决定每次读写1024字节，count定义读写次数为10次），但内容全为0的文件。 
+
+　　# dd if=/dev/zero of=file count=10 bs=1024
+
+　　10+0 records in
+
+　　10+0 records out
+
+　　10240 bytes transferred in 0.001408 secs (7267903 b ytes/sec)
+
+可以通过使用dd if=/dev/zero of=/file 来测试磁盘的纯写入性能
+
+使用dd if=/file of=/dev/null 来测试磁盘的纯读取性能
+
+使用dd if=/file1 of=/file2 来测试磁盘的读写性能
